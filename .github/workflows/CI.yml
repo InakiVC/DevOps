@@ -23,15 +23,15 @@ jobs:
         node-version: 14
 
     - name: Install dependencies
-      working-directory: capstone_project/hello-world
+      working-directory: capstone_project/hello-world/
       run: npm ci
 
     - name: Run tests
-      working-directory: capstone_project/hello-world
+      working-directory: capstone_project/hello-world/
       run: npm test
 
     - name: Build Docker image
-      working-directory: capstone_project/hello-world
+      working-directory: capstone_project/hello-world/
       if: success()
       run: docker build -t my-hello-world-app .
 
