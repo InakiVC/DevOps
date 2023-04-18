@@ -21,6 +21,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 14
+        
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ./capstone_project/hello-world/node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('./capstone_project/hello-world/package-lock.json') }}
 
     - name: Install dependencies
       working-directory: ./capstone_project/hello-world/
